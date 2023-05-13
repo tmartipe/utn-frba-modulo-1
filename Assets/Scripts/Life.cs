@@ -10,7 +10,7 @@ public class Life : MonoBehaviour
         currentLife = maxLife;
     }
 
-    protected virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         currentLife -= damage;
         if (currentLife <= 0) 

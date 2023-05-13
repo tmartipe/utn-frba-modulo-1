@@ -1,6 +1,6 @@
 ﻿public class PlayerLife : Life
 {
-    protected override void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         currentLife -= damage;
         HUDManager.Instance.UpdateHeartIcons(currentLife);
