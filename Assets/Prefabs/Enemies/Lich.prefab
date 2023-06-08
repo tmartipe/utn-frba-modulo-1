@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 5808602411342673773}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &9210157010202358508
 CapsuleCollider:
@@ -120,6 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3877f3519503a49b58b297f29cd5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  detectDistance: 15
   timeBetweenAttack: 3
   rayOrigin: {fileID: 5864220268696702256}
   lineRenderer: {fileID: 0}
@@ -152,7 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2157986760934846543}
+  m_Father: {fileID: 1907288718481889190}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2157986760934846541
@@ -250,7 +254,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 958937158013364502}
   m_SourcePrefab: {fileID: 100100000, guid: 8df3521c5ab0aa940a33f46c7dc4afc8, type: 3}
---- !u!1 &2157986760934846542 stripped
+--- !u!1 &1239576590548552988 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8df3521c5ab0aa940a33f46c7dc4afc8, type: 3}
   m_PrefabInstance: {fileID: 2157986760934846541}
@@ -262,7 +266,7 @@ LineRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2157986760934846542}
+  m_GameObject: {fileID: 1239576590548552988}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -359,7 +363,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!4 &2157986760934846543 stripped
+--- !u!4 &1907288718481889190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8df3521c5ab0aa940a33f46c7dc4afc8, type: 3}
   m_PrefabInstance: {fileID: 2157986760934846541}
@@ -453,7 +457,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5248887888362584809, guid: 1f6bedb722cfc784b89c018e17c518d8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2157986760934846543}
+      addedObject: {fileID: 1907288718481889190}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1f6bedb722cfc784b89c018e17c518d8, type: 3}
       insertIndex: -1

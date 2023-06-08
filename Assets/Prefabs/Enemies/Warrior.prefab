@@ -35,7 +35,7 @@ Transform:
   - {fileID: 1403802311360283802}
   - {fileID: 4175259588847965501}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &9208864390261426509
 NavMeshAgent:
@@ -121,6 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631536bb02f8ef94a9d992b51c463529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  detectDistance: 25
   timeBetweenAttack: 3
   attackRadius: 0.5
   attackPosition: {fileID: 4175259588847965501}

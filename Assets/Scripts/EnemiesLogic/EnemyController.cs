@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 namespace EnemiesLogic
 {
@@ -9,7 +8,11 @@ namespace EnemiesLogic
         protected Animator anim;
         protected NavMeshAgent nma;
         protected GameObject player;
-        
+
+        protected bool hasSeenPlayer;
+
+        public LayerMask detectLayerMask;
+        public float detectDistance;
         public float timeBetweenAttack = 3f;
         private float _attackTimer;
         protected virtual void Awake()
@@ -17,13 +20,18 @@ namespace EnemiesLogic
             nma = GetComponent<NavMeshAgent>();
             player = GameObject.Find("Player");
             anim = GetComponentInChildren<Animator>();
+            hasSeenPlayer = false;
         }
 
         protected virtual void Update()
         {
+            if (!hasSeenPlayer)
+                ScanRadius();
             HandleAnimation();
-            nma.SetDestination(player.transform.position);
-            if (nma.velocity == Vector3.zero && _attackTimer <= 0)
+            if (hasSeenPlayer)
+                nma.SetDestination(player.transform.position);
+            
+            if (nma.velocity == Vector3.zero && _attackTimer <= 0 && hasSeenPlayer)
             {
                 Attack();
                 _attackTimer = timeBetweenAttack;
@@ -41,5 +49,24 @@ namespace EnemiesLogic
         }
 
         protected abstract void Attack();
+
+        protected void ScanRadius()
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, detectDistance, detectLayerMask);
+            foreach (var collider in colliders)
+            {
+                if (collider.CompareTag("Player"))
+                {
+                    hasSeenPlayer = true;
+                }
+            }
+        }
+        
+        void OnDrawGizmosSelected()
+        {
+            // Draw a yellow sphere at the transform's position
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, detectDistance);
+        }
     }
 }
